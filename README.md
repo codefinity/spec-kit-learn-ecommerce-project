@@ -899,6 +899,80 @@ Example clarification topics:
 - What should happen when stock changes during checkout?
 - Which admin roles can edit product prices?
 
+
+Question 1: Product Category Relationship
+
+Recommended: Option A - A single primary category keeps the tutorial easier to reason about and matches the current spec wording, while still supporting useful category filtering.
+
+Option	Description
+A	Each product belongs to exactly one browseable category
+B	Each product can belong to multiple browseable categories
+C	Each product has one primary category plus optional secondary categories
+Short	Provide a different short answer (<=5 words)
+You can reply with the option letter (e.g., A), accept the recommendation by saying yes or recommended, or provide your own short answer.
+
+Answer: C
+
+Question 2: Text Search Matching
+
+Recommended: Option A - It gives shoppers the most forgiving tutorial-friendly search behavior while keeping acceptance tests simple and predictable.
+
+Option	Description
+A	Case-insensitive partial matching across product names and descriptions
+B	Case-insensitive exact phrase matching across product names and descriptions
+C	Case-insensitive prefix matching across product names only
+D	Case-insensitive partial matching across product names only
+Short	Provide a different short answer (<=5 words)
+You can reply with the option letter, accept the recommendation by saying yes or recommended, or provide your own short answer.
+
+Answer: A
+
+Question 3: Availability Fallback
+
+Recommended: Option A - It preserves product discovery even when Inventory is temporarily unavailable, while giving shoppers an honest state to test and display.
+
+Option	Description
+A	Show product information with “availability unavailable” fallback
+B	Hide products whose availability cannot be loaded
+C	Show product information and assume unavailable
+D	Block catalog/detail until availability loads
+Short	Provide a different short answer (<=5 words)
+You can reply with the option letter, accept the recommendation by saying yes or recommended, or provide your own short answer.
+
+Answer: A
+
+Question 4: Large Result Navigation
+
+Recommended: Option A - Numbered pagination is explicit, easy to test, and lines up with the current spec’s paging language.
+
+Option	Description
+A	Numbered pagination with page size and page navigation
+B	“Load more” button appends additional products
+C	Infinite scroll loads more products automatically
+D	No paging for initial tutorial version
+Short	Provide a different short answer (<=5 words)
+You can reply with the option letter, accept the recommendation by saying yes or recommended, or provide your own short answer.
+
+Answer: C
+
+Question 5: Default Result Ordering
+
+Recommended: Option A - Alphabetical ordering is stable, easy to test, and avoids adding merchandising rules to this catalog browsing slice.
+
+Option	Description
+A	Product name A-Z by default
+B	Newest published products first
+C	Lowest price first
+D	Featured products first, then product name A-Z
+Short	Provide a different short answer (<=5 words)
+You can reply with the option letter, accept the recommendation by saying yes or recommended, or provide your own short answer.
+
+Answer: D
+
+
+
+
+
 ### Step 6: Turn Specs into Implementation Plans
 
 Why this step is needed:
