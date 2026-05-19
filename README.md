@@ -1067,6 +1067,67 @@ Spec Kit compares `spec.md`, `plan.md`, and `tasks.md` and reports:
 Use the analysis report to refine the spec or plan, then regenerate tasks if
 needed.
 
+
+Output:
+
+## Specification Analysis Report
+
+| ID | Category | Severity | Location(s) | Summary | Recommendation |
+|----|----------|----------|-------------|---------|----------------|
+| C1 | Constitution / Coverage | CRITICAL | `spec.md:154`, `plan.md:40`, `plan.md:90`, `contracts/catalog-api.yaml:97`, `tasks.md:59-60`, `tasks.md:282` | Artifacts expose `GET /api/inventory/products/{productId}/availability` and `GetProductAvailabilityQuery`, but tasks only create an internal Inventory contract/stub. No task maps/tests/implements the Inventory REST endpoint. This also conflicts with the plan saying Inventory exposes only a public contract. | Choose one path: remove the Inventory REST endpoint/query from spec/plan/contracts, or add explicit Inventory query handler, endpoint mapping, API tests, and client/usage tasks. |
+| A1 | Ambiguity | MEDIUM | `spec.md:118`, `tasks.md:116`, `tasks.md:124`, `tasks.md:151` | FR-015 says preserve search/category choices “where practical.” Tasks cover URL/query state, but not the catalog-detail-back navigation behavior. | Replace “where practical” with exact behavior, then add/adjust frontend tests for returning from detail to preserved catalog state. |
+| G1 | Coverage Gap | MEDIUM | `plan.md:69-71`, `tasks.md:88`, `tasks.md:166` | Plan sets timing goals for initial results and infinite-scroll results, but tasks only mention Playwright flow, not timing assertions or performance validation. | Add timing assertions to the Playwright task or add a dedicated frontend performance validation task. |
+| G2 | Coverage Gap | MEDIUM | `spec.md:97`, `data-model.md:32-34`, `tasks.md:83-84` | Edge case “Product price or required display data is incomplete” has no explicit query/API test or behavior decision. | Add tests for excluding invalid published data or clarify this is enforced only by admin publish validation. |
+| I1 | Inconsistency | LOW | `data-model.md:99`, `contracts/catalog-api.yaml:217-226` | `AvailabilitySummary` data model includes `productId`, but OpenAPI `AvailabilitySummary` omits it. | Align the response schema and DTO task with the intended shape, or mark `productId` as internal-only. |
+
+**Coverage Summary**
+
+| Requirement Key | Has Task? | Task IDs | Notes |
+|-----------------|-----------|----------|-------|
+| FR-001 published only | Yes | T022, T025, T028, T031 | Covered |
+| FR-002 product cards | Yes | T015, T022, T026, T033, T034 | Covered |
+| FR-003 open detail | Yes | T027, T032, T033-T035 | Covered |
+| FR-004 detail fields | Yes | T015, T023, T029, T035 | Covered |
+| FR-005 not found | Yes | T023, T025, T029, T035 | Covered |
+| FR-006/007 text search | Yes | T037-T045 | Covered |
+| FR-008/009 category filters | Yes | T046, T048-T056 | Covered |
+| FR-010 empty states | Yes | T036, T039, T045, T049, T056 | Covered |
+| FR-011 clear filters | Yes | T039, T043-T044, T049, T054-T055 | Covered |
+| FR-012 infinite scroll | Yes | T022, T027-T028, T034 | Covered |
+| FR-013 availability fallback | Yes | T013-T014, T024, T030, T035-T036 | Covered |
+| FR-014 read-only Catalog | Yes | T063 | Covered |
+| FR-015 preserve choices | Partial | T039, T044, T055 | Needs exact detail/back behavior |
+| FR-016 ordering | Yes | T022, T028, T037, T040, T046, T050 | Covered |
+| SC-006/007/008 acceptance-test outcomes | Yes | T022, T027, T037, T046, T050 | Covered |
+| Plan performance goals | No | None explicit | See G1 |
+
+**Constitution Alignment Issues**
+
+- C1 conflicts with the constitution’s requirement that API contracts and task mappings remain explicit and aligned. Resolve before `/speckit-implement`.
+
+**Unmapped Tasks**
+
+- No material unmapped story tasks. Setup/foundational/polish tasks support project structure, module boundaries, validation, and verification.
+
+**Metrics**
+
+- Total buildable requirements checked: 20
+- Total tasks: 63
+- Coverage: 19/20 have at least partial task coverage
+- Ambiguity count: 1
+- Duplication count: 0
+- Critical issues count: 1
+
+**Next Actions**
+
+Resolve C1 before implementation. The cleanest fix is likely removing the Inventory REST endpoint/query from this Catalog feature and keeping Inventory as an internal module contract, since the plan and tasks already lean that way.
+
+After that, tighten FR-015 and add the missing performance/invalid-data test coverage. Then proceed to `/speckit-implement`.
+
+Would you like me to suggest concrete remediation edits for the top 3 issues?
+
+Answer: Yes
+
 ### Step 9: Implement Features
 
 Why this step is needed:
