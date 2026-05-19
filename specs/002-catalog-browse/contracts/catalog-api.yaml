@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Catalog Browsing API
+  version: 1.0.0
+  description: REST contracts for shopper catalog browsing, search, filtering, product detail, and availability fallback.
+servers:
+  - url: http://localhost:5000
+paths:
+  /api/catalog/products:
+    get:
+      summary: Browse, search, and filter published products
+      operationId: browseCatalogProducts
+      tags: [Catalog]
+      parameters:
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+            maxLength: 120
+          description: Case-insensitive partial search across product name and description.
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Browseable category slug matched against primary and secondary categories.
+        - name: cursor
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Opaque cursor returned by the previous result set for infinite scroll.
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 24
+            minimum: 1
+            maximum: 60
+      responses:
+        "200":
+          description: Ordered catalog result set
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CatalogResultSet"
+        "400":
+          description: Invalid query parameter
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+  /api/catalog/products/{productSlug}:
+    get:
+      summary: Get detail for one published product
+      operationId: getCatalogProductDetail
+      tags: [Catalog]
+      parameters:
+        - name: productSlug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Published product detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductDetail"
+        "404":
+          description: Product is unknown or not published
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+  /api/catalog/categories:
+    get:
+      summary: Get browseable categories
+      operationId: getCatalogCategories
+      tags: [Catalog]
+      responses:
+        "200":
+          description: Browseable category options
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CategorySummary"
+  /api/inventory/products/{productId}/availability:
+    get:
+      summary: Get product availability summary
+      operationId: getProductAvailability
+      tags: [Inventory]
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Availability summary for the product
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AvailabilitySummary"
+        "404":
+          description: Product availability is unknown
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+components:
+  schemas:
+    CatalogResultSet:
+      type: object
+      required: [items, hasMore]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductCard"
+        totalCount:
+          type: integer
+          nullable: true
+        nextCursor:
+          type: string
+          nullable: true
+        hasMore:
+          type: boolean
+        appliedSearch:
+          type: string
+          nullable: true
+        appliedCategorySlug:
+          type: string
+          nullable: true
+    ProductCard:
+      type: object
+      required: [id, slug, name, price, primaryCategory, isFeatured, availability]
+      properties:
+        id:
+          type: string
+          format: uuid
+        slug:
+          type: string
+        name:
+          type: string
+        price:
+          $ref: "#/components/schemas/Money"
+        primaryImage:
+          $ref: "#/components/schemas/ProductImage"
+          nullable: true
+        primaryCategory:
+          $ref: "#/components/schemas/CategorySummary"
+        isFeatured:
+          type: boolean
+        availability:
+          $ref: "#/components/schemas/AvailabilitySummary"
+    ProductDetail:
+      type: object
+      required: [id, slug, name, description, price, primaryCategory, secondaryCategories, images, isFeatured, availability]
+      properties:
+        id:
+          type: string
+          format: uuid
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          $ref: "#/components/schemas/Money"
+        primaryCategory:
+          $ref: "#/components/schemas/CategorySummary"
+        secondaryCategories:
+          type: array
+          items:
+            $ref: "#/components/schemas/CategorySummary"
+        images:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductImage"
+        isFeatured:
+          type: boolean
+        availability:
+          $ref: "#/components/schemas/AvailabilitySummary"
+    CategorySummary:
+      type: object
+      required: [id, slug, name]
+      properties:
+        id:
+          type: string
+          format: uuid
+        slug:
+          type: string
+        name:
+          type: string
+    ProductImage:
+      type: object
+      required: [url, altText]
+      properties:
+        url:
+          type: string
+          format: uri-reference
+        altText:
+          type: string
+    AvailabilitySummary:
+      type: object
+      required: [state, displayText]
+      properties:
+        state:
+          type: string
+          enum: [InStock, LowStock, OutOfStock, Unavailable]
+        displayText:
+          type: string
+          example: availability unavailable
+    Money:
+      type: object
+      required: [amount, currency]
+      properties:
+        amount:
+          type: number
+          format: decimal
+          minimum: 0
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+    ProblemDetails:
+      type: object
+      required: [title, status]
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
