@@ -35,13 +35,13 @@ description: "Task list for Catalog Browsing feature implementation"
 
 **Purpose**: Establish the solution, module, test, and frontend folders required by this feature
 
-- [ ] T001 Create backend solution and shared/API projects in `src/backend/Ecommerce.sln`, `src/backend/src/Ecommerce.Api/Ecommerce.Api.csproj`, and `src/backend/src/Ecommerce.Shared/Ecommerce.Shared.csproj`
-- [ ] T002 [P] Create Catalog module project in `src/backend/src/Ecommerce.Modules.Catalog/Ecommerce.Modules.Catalog.csproj`
-- [ ] T003 [P] Create Inventory module project and contracts folder in `src/backend/src/Ecommerce.Modules.Inventory/Ecommerce.Modules.Inventory.csproj` and `src/backend/src/Ecommerce.Modules.Inventory/Contracts/`
-- [ ] T004 [P] Create backend test projects in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Ecommerce.Modules.Catalog.Tests.csproj`, `src/backend/tests/Ecommerce.Api.Tests/Ecommerce.Api.Tests.csproj`, and `src/backend/tests/Ecommerce.Architecture.Tests/Ecommerce.Architecture.Tests.csproj`
-- [ ] T005 [P] Create Next.js App Router storefront scaffold in `src/frontend/storefront/package.json` and `src/frontend/storefront/app/`
-- [ ] T006 [P] Create Catalog frontend folders in `src/frontend/storefront/app/(shop)/products/`, `src/frontend/storefront/components/catalog/`, and `src/frontend/storefront/lib/api/`
-- [ ] T007 Add project references for API, Catalog, Inventory, Shared, and tests in `src/backend/Ecommerce.sln`
+- [X] T001 Create backend solution and shared/API projects in `src/backend/Ecommerce.sln`, `src/backend/src/Ecommerce.Api/Ecommerce.Api.csproj`, and `src/backend/src/Ecommerce.Shared/Ecommerce.Shared.csproj`
+- [X] T002 [P] Create Catalog module project in `src/backend/src/Ecommerce.Modules.Catalog/Ecommerce.Modules.Catalog.csproj`
+- [X] T003 [P] Create Inventory module project and contracts folder in `src/backend/src/Ecommerce.Modules.Inventory/Ecommerce.Modules.Inventory.csproj` and `src/backend/src/Ecommerce.Modules.Inventory/Contracts/`
+- [X] T004 [P] Create backend test projects in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Ecommerce.Modules.Catalog.Tests.csproj`, `src/backend/tests/Ecommerce.Api.Tests/Ecommerce.Api.Tests.csproj`, and `src/backend/tests/Ecommerce.Architecture.Tests/Ecommerce.Architecture.Tests.csproj`
+- [X] T005 [P] Create Next.js App Router storefront scaffold in `src/frontend/storefront/package.json` and `src/frontend/storefront/app/`
+- [X] T006 [P] Create Catalog frontend folders in `src/frontend/storefront/app/(shop)/products/`, `src/frontend/storefront/components/catalog/`, and `src/frontend/storefront/lib/api/`
+- [X] T007 Add project references for API, Catalog, Inventory, Shared, and tests in `src/backend/Ecommerce.sln`
 
 ---
 
@@ -51,20 +51,20 @@ description: "Task list for Catalog Browsing feature implementation"
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T008 Define Catalog module registration extension in `src/backend/src/Ecommerce.Modules.Catalog/CatalogModule.cs`
-- [ ] T009 Create Catalog EF Core context in `src/backend/src/Ecommerce.Modules.Catalog/Data/CatalogDbContext.cs`
-- [ ] T010 [P] Create Catalog entity classes in `src/backend/src/Ecommerce.Modules.Catalog/Data/Entities/Product.cs`, `Category.cs`, `ProductImage.cs`, and `ProductSecondaryCategory.cs`
-- [ ] T011 [P] Create Catalog EF Core configurations with `Catalog_` table prefixes in `src/backend/src/Ecommerce.Modules.Catalog/Data/Configurations/`
-- [ ] T012 [P] Create Catalog seed data helper in `src/backend/src/Ecommerce.Modules.Catalog/Data/CatalogSeedData.cs`
-- [ ] T013 Define Inventory availability contract in `src/backend/src/Ecommerce.Modules.Inventory/Contracts/IProductAvailabilityReader.cs`
-- [ ] T014 [P] Create local Inventory availability stub for tests and tutorial runs in `src/backend/src/Ecommerce.Modules.Inventory/Contracts/StaticProductAvailabilityReader.cs`
-- [ ] T015 [P] Create Catalog response DTOs in `src/backend/src/Ecommerce.Modules.Catalog/Contracts/ProductCardResponse.cs`, `ProductDetailResponse.cs`, `CategorySummaryResponse.cs`, `AvailabilitySummaryResponse.cs`, and `CatalogResultSetResponse.cs`
-- [ ] T016 [P] Create shared Catalog query input models and cursor model in `src/backend/src/Ecommerce.Modules.Catalog/Queries/CatalogQueryModels.cs`
-- [ ] T017 Create Catalog request validation helpers for `search`, `category`, `cursor`, `limit`, and `slug` in `src/backend/src/Ecommerce.Modules.Catalog/Validation/CatalogRequestValidation.cs`
-- [ ] T018 Create Catalog endpoint route group extension in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
-- [ ] T019 Register Catalog and Inventory modules in `src/backend/src/Ecommerce.Api/Program.cs`
-- [ ] T020 [P] Create frontend Catalog API types in `src/frontend/storefront/lib/api/catalog.types.ts`
-- [ ] T021 [P] Add module boundary tests for Catalog and Inventory access rules in `src/backend/tests/Ecommerce.Architecture.Tests/ModuleBoundaryTests.cs`
+- [X] T008 Define Catalog module registration extension in `src/backend/src/Ecommerce.Modules.Catalog/CatalogModule.cs`
+- [X] T009 Create Catalog EF Core context in `src/backend/src/Ecommerce.Modules.Catalog/Data/CatalogDbContext.cs`
+- [X] T010 [P] Create Catalog entity classes in `src/backend/src/Ecommerce.Modules.Catalog/Data/Entities/Product.cs`, `Category.cs`, `ProductImage.cs`, and `ProductSecondaryCategory.cs`
+- [X] T011 [P] Create Catalog EF Core configurations with `Catalog_` table prefixes in `src/backend/src/Ecommerce.Modules.Catalog/Data/Configurations/`
+- [X] T012 [P] Create Catalog seed data helper in `src/backend/src/Ecommerce.Modules.Catalog/Data/CatalogSeedData.cs`
+- [X] T013 Define Inventory availability contract in `src/backend/src/Ecommerce.Modules.Inventory/Contracts/IProductAvailabilityReader.cs`
+- [X] T014 [P] Create local Inventory availability stub for tests and tutorial runs in `src/backend/src/Ecommerce.Modules.Inventory/Contracts/StaticProductAvailabilityReader.cs`
+- [X] T015 [P] Create Catalog response DTOs in `src/backend/src/Ecommerce.Modules.Catalog/Contracts/ProductCardResponse.cs`, `ProductDetailResponse.cs`, `CategorySummaryResponse.cs`, `AvailabilitySummaryResponse.cs`, and `CatalogResultSetResponse.cs`
+- [X] T016 [P] Create shared Catalog query input models and cursor model in `src/backend/src/Ecommerce.Modules.Catalog/Queries/CatalogQueryModels.cs`
+- [X] T017 Create Catalog request validation helpers for `search`, `category`, `cursor`, `limit`, and `slug` in `src/backend/src/Ecommerce.Modules.Catalog/Validation/CatalogRequestValidation.cs`
+- [X] T018 Create Catalog endpoint route group extension in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
+- [X] T019 Register Catalog and Inventory modules in `src/backend/src/Ecommerce.Api/Program.cs`
+- [X] T020 [P] Create frontend Catalog API types in `src/frontend/storefront/lib/api/catalog.types.ts`
+- [X] T021 [P] Add module boundary tests for Catalog and Inventory access rules in `src/backend/tests/Ecommerce.Architecture.Tests/ModuleBoundaryTests.cs`
 
 **Checkpoint**: Foundation ready - user story implementation can begin.
 
@@ -80,24 +80,24 @@ description: "Task list for Catalog Browsing feature implementation"
 
 > **NOTE: Write these tests first and confirm they fail before implementation.**
 
-- [ ] T022 [P] [US1] Add BrowseProductsQuery tests for published-only filtering, featured-first ordering, infinite-scroll cursor batches, and image fallback in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/BrowseProductsQueryHandlerTests.cs`
-- [ ] T023 [P] [US1] Add GetProductDetailQuery tests for published detail, unknown slug, unpublished slug, secondary categories, and missing image fallback in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetProductDetailQueryHandlerTests.cs`
-- [ ] T024 [P] [US1] Add Inventory availability fallback tests for Catalog query responses in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Integration/InventoryAvailabilityFallbackTests.cs`
-- [ ] T025 [P] [US1] Add API endpoint tests for `GET /api/catalog/products` and `GET /api/catalog/products/{productSlug}` in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogBrowseEndpointsTests.cs`
-- [ ] T026 [P] [US1] Add frontend tests for `ProductGrid`, `ProductCard`, `AvailabilityBadge`, and `ProductImageGallery` in `src/frontend/storefront/tests/catalog/catalog-components.test.tsx`
-- [ ] T027 [P] [US1] Add Playwright catalog browse/detail/infinite-scroll flow in `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
+- [X] T022 [P] [US1] Add BrowseProductsQuery tests for published-only filtering, featured-first ordering, infinite-scroll cursor batches, and image fallback in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/BrowseProductsQueryHandlerTests.cs`
+- [X] T023 [P] [US1] Add GetProductDetailQuery tests for published detail, unknown slug, unpublished slug, secondary categories, and missing image fallback in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetProductDetailQueryHandlerTests.cs`
+- [X] T024 [P] [US1] Add Inventory availability fallback tests for Catalog query responses in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Integration/InventoryAvailabilityFallbackTests.cs`
+- [X] T025 [P] [US1] Add API endpoint tests for `GET /api/catalog/products` and `GET /api/catalog/products/{productSlug}` in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogBrowseEndpointsTests.cs`
+- [X] T026 [P] [US1] Add frontend tests for `ProductGrid`, `ProductCard`, `AvailabilityBadge`, and `ProductImageGallery` in `src/frontend/storefront/tests/catalog/catalog-components.test.tsx`
+- [X] T027 [P] [US1] Add Playwright catalog browse/detail/infinite-scroll flow in `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T028 [P] [US1] Implement `BrowseProductsQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/BrowseProducts/BrowseProductsQuery.cs` and `BrowseProductsQueryHandler.cs`
-- [ ] T029 [P] [US1] Implement `GetProductDetailQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetProductDetail/GetProductDetailQuery.cs` and `GetProductDetailQueryHandler.cs`
-- [ ] T030 [US1] Integrate `IProductAvailabilityReader` fallback mapping into Catalog query handlers in `src/backend/src/Ecommerce.Modules.Catalog/Queries/CatalogAvailabilityMapper.cs`
-- [ ] T031 [US1] Map `GET /api/catalog/products` and `GET /api/catalog/products/{productSlug}` in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
-- [ ] T032 [US1] Implement `browseProducts` and `getProductDetail` API client functions in `src/frontend/storefront/lib/api/catalog.ts`
-- [ ] T033 [P] [US1] Build `ProductCard`, `ProductGrid`, `AvailabilityBadge`, and `ProductImageGallery` components in `src/frontend/storefront/components/catalog/`
-- [ ] T034 [US1] Build catalog listing page with initial results and infinite-scroll loading in `src/frontend/storefront/app/(shop)/products/page.tsx`
-- [ ] T035 [US1] Build product detail page with not-found and availability fallback states in `src/frontend/storefront/app/(shop)/products/[slug]/page.tsx`
-- [ ] T036 [US1] Implement loading, empty, success, and error UI states for browse/detail in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
+- [X] T028 [P] [US1] Implement `BrowseProductsQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/BrowseProducts/BrowseProductsQuery.cs` and `BrowseProductsQueryHandler.cs`
+- [X] T029 [P] [US1] Implement `GetProductDetailQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetProductDetail/GetProductDetailQuery.cs` and `GetProductDetailQueryHandler.cs`
+- [X] T030 [US1] Integrate `IProductAvailabilityReader` fallback mapping into Catalog query handlers in `src/backend/src/Ecommerce.Modules.Catalog/Queries/CatalogAvailabilityMapper.cs`
+- [X] T031 [US1] Map `GET /api/catalog/products` and `GET /api/catalog/products/{productSlug}` in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
+- [X] T032 [US1] Implement `browseProducts` and `getProductDetail` API client functions in `src/frontend/storefront/lib/api/catalog.ts`
+- [X] T033 [P] [US1] Build `ProductCard`, `ProductGrid`, `AvailabilityBadge`, and `ProductImageGallery` components in `src/frontend/storefront/components/catalog/`
+- [X] T034 [US1] Build catalog listing page with initial results and infinite-scroll loading in `src/frontend/storefront/app/(shop)/products/page.tsx`
+- [X] T035 [US1] Build product detail page with not-found and availability fallback states in `src/frontend/storefront/app/(shop)/products/[slug]/page.tsx`
+- [X] T036 [US1] Implement loading, empty, success, and error UI states for browse/detail in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
 
 **Checkpoint**: User Story 1 is fully functional and testable independently.
 
@@ -111,18 +111,18 @@ description: "Task list for Catalog Browsing feature implementation"
 
 ### Tests for User Story 2
 
-- [ ] T037 [P] [US2] Add SearchProductsQuery tests for case-insensitive partial name/description matching, trimmed search text, unpublished exclusion, and featured-first ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/SearchProductsQueryHandlerTests.cs`
-- [ ] T038 [P] [US2] Add API endpoint tests for `GET /api/catalog/products?search=` validation and results in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogSearchEndpointsTests.cs`
-- [ ] T039 [P] [US2] Add frontend tests for search input, clear search, preserved URL/query state, return-from-detail state, and no-results copy in `src/frontend/storefront/tests/catalog/product-search.test.tsx`
+- [X] T037 [P] [US2] Add SearchProductsQuery tests for case-insensitive partial name/description matching, trimmed search text, unpublished exclusion, and featured-first ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/SearchProductsQueryHandlerTests.cs`
+- [X] T038 [P] [US2] Add API endpoint tests for `GET /api/catalog/products?search=` validation and results in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogSearchEndpointsTests.cs`
+- [X] T039 [P] [US2] Add frontend tests for search input, clear search, preserved URL/query state, return-from-detail state, and no-results copy in `src/frontend/storefront/tests/catalog/product-search.test.tsx`
 
 ### Implementation for User Story 2
 
-- [ ] T040 [US2] Implement `SearchProductsQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/SearchProducts/SearchProductsQuery.cs` and `SearchProductsQueryHandler.cs`
-- [ ] T041 [US2] Wire `search` query parameter validation into `src/backend/src/Ecommerce.Modules.Catalog/Validation/CatalogRequestValidation.cs`
-- [ ] T042 [US2] Update `browseProducts` API client search parameter support in `src/frontend/storefront/lib/api/catalog.ts`
-- [ ] T043 [US2] Build search controls and clear-search behavior in `src/frontend/storefront/components/catalog/ProductFilters.tsx`
-- [ ] T044 [US2] Integrate search state with catalog listing URL/query state in `src/frontend/storefront/app/(shop)/products/page.tsx`
-- [ ] T045 [US2] Implement search no-results state in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
+- [X] T040 [US2] Implement `SearchProductsQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/SearchProducts/SearchProductsQuery.cs` and `SearchProductsQueryHandler.cs`
+- [X] T041 [US2] Wire `search` query parameter validation into `src/backend/src/Ecommerce.Modules.Catalog/Validation/CatalogRequestValidation.cs`
+- [X] T042 [US2] Update `browseProducts` API client search parameter support in `src/frontend/storefront/lib/api/catalog.ts`
+- [X] T043 [US2] Build search controls and clear-search behavior in `src/frontend/storefront/components/catalog/ProductFilters.tsx`
+- [X] T044 [US2] Integrate search state with catalog listing URL/query state in `src/frontend/storefront/app/(shop)/products/page.tsx`
+- [X] T045 [US2] Implement search no-results state in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
 
 **Checkpoint**: User Stories 1 and 2 both work independently.
 
@@ -136,20 +136,20 @@ description: "Task list for Catalog Browsing feature implementation"
 
 ### Tests for User Story 3
 
-- [ ] T046 [P] [US3] Add GetProductsByCategoryQuery tests for primary category, secondary category, non-browseable category, missing category, combined search/category, and ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetProductsByCategoryQueryHandlerTests.cs`
-- [ ] T047 [P] [US3] Add GetCatalogCategoriesQuery tests for browseable category options in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetCatalogCategoriesQueryHandlerTests.cs`
-- [ ] T048 [P] [US3] Add API endpoint tests for `GET /api/catalog/categories` and `GET /api/catalog/products?category=` in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogCategoryEndpointsTests.cs`
-- [ ] T049 [P] [US3] Add frontend tests for category selection, clear filters, combined search/category state, return-from-detail state, and category empty state in `src/frontend/storefront/tests/catalog/product-category-filter.test.tsx`
+- [X] T046 [P] [US3] Add GetProductsByCategoryQuery tests for primary category, secondary category, non-browseable category, missing category, combined search/category, and ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetProductsByCategoryQueryHandlerTests.cs`
+- [X] T047 [P] [US3] Add GetCatalogCategoriesQuery tests for browseable category options in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetCatalogCategoriesQueryHandlerTests.cs`
+- [X] T048 [P] [US3] Add API endpoint tests for `GET /api/catalog/categories` and `GET /api/catalog/products?category=` in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogCategoryEndpointsTests.cs`
+- [X] T049 [P] [US3] Add frontend tests for category selection, clear filters, combined search/category state, return-from-detail state, and category empty state in `src/frontend/storefront/tests/catalog/product-category-filter.test.tsx`
 
 ### Implementation for User Story 3
 
-- [ ] T050 [P] [US3] Implement `GetProductsByCategoryQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetProductsByCategory/GetProductsByCategoryQuery.cs` and `GetProductsByCategoryQueryHandler.cs`
-- [ ] T051 [P] [US3] Implement `GetCatalogCategoriesQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetCatalogCategories/GetCatalogCategoriesQuery.cs` and `GetCatalogCategoriesQueryHandler.cs`
-- [ ] T052 [US3] Map `GET /api/catalog/categories` and category filter behavior in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
-- [ ] T053 [US3] Update `browseProducts` and add `getCatalogCategories` API client functions in `src/frontend/storefront/lib/api/catalog.ts`
-- [ ] T054 [US3] Add category filter controls and active-filter labels in `src/frontend/storefront/components/catalog/ProductFilters.tsx`
-- [ ] T055 [US3] Integrate combined search/category filters and clear-filter behavior in `src/frontend/storefront/app/(shop)/products/page.tsx`
-- [ ] T056 [US3] Implement category empty state in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
+- [X] T050 [P] [US3] Implement `GetProductsByCategoryQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetProductsByCategory/GetProductsByCategoryQuery.cs` and `GetProductsByCategoryQueryHandler.cs`
+- [X] T051 [P] [US3] Implement `GetCatalogCategoriesQuery` and handler in `src/backend/src/Ecommerce.Modules.Catalog/Queries/GetCatalogCategories/GetCatalogCategoriesQuery.cs` and `GetCatalogCategoriesQueryHandler.cs`
+- [X] T052 [US3] Map `GET /api/catalog/categories` and category filter behavior in `src/backend/src/Ecommerce.Modules.Catalog/Endpoints/CatalogEndpoints.cs`
+- [X] T053 [US3] Update `browseProducts` and add `getCatalogCategories` API client functions in `src/frontend/storefront/lib/api/catalog.ts`
+- [X] T054 [US3] Add category filter controls and active-filter labels in `src/frontend/storefront/components/catalog/ProductFilters.tsx`
+- [X] T055 [US3] Integrate combined search/category filters and clear-filter behavior in `src/frontend/storefront/app/(shop)/products/page.tsx`
+- [X] T056 [US3] Implement category empty state in `src/frontend/storefront/components/catalog/CatalogStates.tsx`
 
 **Checkpoint**: All planned user stories work independently.
 
@@ -159,13 +159,13 @@ description: "Task list for Catalog Browsing feature implementation"
 
 **Purpose**: Validate contracts, docs, boundaries, and full flow after all desired user stories are complete
 
-- [ ] T057 [P] Update quickstart acceptance notes if implementation paths or commands changed in `specs/002-catalog-browse/quickstart.md`
-- [ ] T058 [P] Verify implemented endpoints match OpenAPI contract in `specs/002-catalog-browse/contracts/catalog-api.yaml`
-- [ ] T059 Run backend format, build, and tests for `src/backend/Ecommerce.sln`
-- [ ] T060 Run frontend lint, typecheck, and tests for `src/frontend/storefront/package.json`
-- [ ] T061 Run Playwright catalog browsing flow with assertions for initial results under 2 seconds and infinite-scroll results under 1 second in `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
-- [ ] T062 Review module boundary tests and confirm Catalog does not reference Inventory internals in `src/backend/tests/Ecommerce.Architecture.Tests/ModuleBoundaryTests.cs`
-- [ ] T063 Verify no command handlers were added for this read-only feature in `src/backend/src/Ecommerce.Modules.Catalog/Commands/`
+- [X] T057 [P] Update quickstart acceptance notes if implementation paths or commands changed in `specs/002-catalog-browse/quickstart.md`
+- [X] T058 [P] Verify implemented endpoints match OpenAPI contract in `specs/002-catalog-browse/contracts/catalog-api.yaml`
+- [X] T059 Run backend format, build, and tests for `src/backend/Ecommerce.sln`
+- [X] T060 Run frontend lint, typecheck, and tests for `src/frontend/storefront/package.json`
+- [X] T061 Run Playwright catalog browsing flow with assertions for initial results under 2 seconds and infinite-scroll results under 1 second in `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
+- [X] T062 Review module boundary tests and confirm Catalog does not reference Inventory internals in `src/backend/tests/Ecommerce.Architecture.Tests/ModuleBoundaryTests.cs`
+- [X] T063 Verify no command handlers were added for this read-only feature in `src/backend/src/Ecommerce.Modules.Catalog/Commands/`
 
 ---
 
@@ -280,3 +280,5 @@ With multiple developers:
 - Endpoint mappings must match `specs/002-catalog-browse/contracts/catalog-api.yaml`.
 - Frontend pages call `src/frontend/storefront/lib/api/catalog.ts`, never backend module internals.
 - Inventory availability must be consumed through the public contract only.
+- Implementation validation note: frontend lint, typecheck, Vitest component
+  tests, and the Playwright catalog browsing flow passed on 2026-05-19.

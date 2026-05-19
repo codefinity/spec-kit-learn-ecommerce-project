@@ -39,6 +39,13 @@ npm install
 npm run dev
 ```
 
+If PowerShell blocks `npm.ps1` on your machine, use the Windows command shim:
+
+```powershell
+npm.cmd install
+npm.cmd run dev
+```
+
 Expected storefront URL:
 
 ```text
@@ -49,6 +56,21 @@ Set the frontend API base URL:
 
 ```text
 NEXT_PUBLIC_API_BASE_URL=http://localhost:5000
+```
+
+Run storefront checks:
+
+```powershell
+npm.cmd run lint
+npm.cmd run typecheck
+npm.cmd run test
+```
+
+Install Playwright browsers once before the e2e flow:
+
+```powershell
+npx playwright install chromium
+npm.cmd run test:e2e
 ```
 
 ## Manual Validation
@@ -93,3 +115,5 @@ Invoke-RestMethod -Method Get -Uri "http://localhost:5000/api/catalog/products/e
 - Infinite scroll loads additional matching products.
 - Unknown or unpublished product detail URLs show not found.
 - Availability failures show product information with "availability unavailable".
+- The tutorial implementation uses seeded local Catalog data so the browse
+  flow works immediately after the API starts.
