@@ -768,6 +768,13 @@ business capabilities. Keep specs focused on user value, commands, queries,
 APIs, frontend screens, and module integration.
 ```
 
+Files Changed
+
+        modified:   .specify/memory/constitution.md
+        modified:   .specify/templates/plan-template.md
+        modified:   .specify/templates/spec-template.md
+        modified:   .specify/templates/tasks-template.md
+
 Then create the product vision:
 
 ```text
