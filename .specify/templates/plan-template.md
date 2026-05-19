@@ -4,43 +4,77 @@
 
 **Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
-**Note**: This template is filled in by the `/speckit-plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
+**Note**: This template is filled in by the `/speckit-plan` command. See
+`.specify/templates/plan-template.md` for the execution workflow.
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+[Extract from feature spec: primary user value, selected bounded capability,
+and the technical approach in one concise paragraph]
 
 ## Technical Context
 
 <!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
+  ACTION REQUIRED: Replace every placeholder with concrete project decisions.
+  This project uses a fixed tutorial stack: Next.js frontend, ASP.NET Core
+  backend, modular monolith backend, and CQRS inside capability modules.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Frontend**: Next.js [version] with TypeScript, located under
+`src/frontend/storefront`
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Backend**: ASP.NET Core [version] with C#, located under `src/backend`
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Backend Architecture**: Modular monolith with bounded business capability
+modules
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Primary Module**: [Catalog/Customer/Cart/Ordering/Payment/Inventory/Shipping/Admin or new capability with rationale]
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Supporting Modules**: [Other modules used through public contracts or N/A]
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**CQRS Operations**: Commands: [list]; Queries: [list]
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**API Surface**: [HTTP methods and routes this feature adds or changes]
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**Frontend Surface**: [Next.js routes, page components, shared components, and API client functions]
 
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Module Integration**: [Public module contracts used, owning module, consuming module, or N/A]
+
+**Storage**: [Database/provider and module-owned schema/table prefix, or N/A]
+
+**Authentication/Authorization**: [Customer/admin/anonymous access rules, or N/A]
+
+**External Providers**: [Payment, shipping, email, image storage, or N/A]
+
+**Testing**: [Backend command/query tests, API tests, module boundary tests,
+frontend tests, Playwright flow tests as applicable]
+
+**Target Platform**: [Local tutorial environment, deployment target if known]
+
+**Performance Goals**: [User-facing or API goals, or N/A]
+
+**Constraints**: [Tutorial constraints, security constraints, provider limits, or N/A]
+
+**Scale/Scope**: [Expected catalog size, order volume, admin usage, or N/A]
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **User Value**: Plan traces the feature to prioritized shopper, customer,
+  admin, or operator outcomes from the spec.
+- **Fixed Stack**: Plan uses Next.js for frontend and ASP.NET Core for backend;
+  any missing version/provider choice is marked as clarification or research.
+- **Bounded Module Ownership**: Plan names the primary business capability module,
+  the data it owns, and any supporting modules used through public contracts.
+- **CQRS Mapping**: Every state-changing operation maps to a command, and every
+  read operation maps to a query.
+- **API Contracts**: Every endpoint lists method, route, request body when
+  applicable, response shape, validation failures, and authorization assumptions.
+- **Frontend Traceability**: Every UI feature lists Next.js routes, components,
+  API client functions, and loading, empty, success, and error states.
+- **Module Integration Coverage**: Cross-module workflows name the owning module,
+  consuming module, public contract, and required integration tests.
 
 ## Project Structure
 
@@ -48,60 +82,64 @@
 
 ```text
 specs/[###-feature]/
-├── plan.md              # This file (/speckit-plan command output)
-├── research.md          # Phase 0 output (/speckit-plan command)
-├── data-model.md        # Phase 1 output (/speckit-plan command)
-├── quickstart.md        # Phase 1 output (/speckit-plan command)
-├── contracts/           # Phase 1 output (/speckit-plan command)
-└── tasks.md             # Phase 2 output (/speckit-tasks command - NOT created by /speckit-plan)
+|-- plan.md              # This file (/speckit-plan command output)
+|-- research.md          # Phase 0 output (/speckit-plan command)
+|-- data-model.md        # Phase 1 output (/speckit-plan command)
+|-- quickstart.md        # Phase 1 output (/speckit-plan command)
+|-- contracts/           # Phase 1 output (/speckit-plan command)
+`-- tasks.md             # Phase 2 output (/speckit-tasks command)
 ```
 
 ### Source Code (repository root)
+
 <!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
+  ACTION REQUIRED: Replace capability placeholders with real module names and
+  add/remove files to match the planned feature. Keep backend business logic
+  inside modules; keep the API host as composition and endpoint wiring.
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
-
-tests/
-├── contract/
-├── integration/
-└── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+|-- backend/
+|   |-- Ecommerce.sln
+|   |-- src/
+|   |   |-- Ecommerce.Api/
+|   |   |   |-- Endpoints/
+|   |   |   `-- Program.cs
+|   |   |-- Ecommerce.Shared/
+|   |   `-- Ecommerce.Modules.<Capability>/
+|   |       |-- Commands/
+|   |       |-- Queries/
+|   |       |-- Endpoints/
+|   |       |-- Contracts/
+|   |       |-- Data/
+|   |       `-- Validation/
+|   `-- tests/
+|       |-- Ecommerce.Modules.<Capability>.Tests/
+|       |-- Ecommerce.Api.Tests/
+|       `-- Ecommerce.Architecture.Tests/
+`-- frontend/
+    `-- storefront/
+        |-- app/
+        |-- components/
+        |-- lib/
+        |   `-- api/
+        `-- tests/
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: [Document the concrete folders and projects this feature
+will add or change, including the primary module and frontend route area.]
+
+## Phase 0: Research
+
+[Capture unknowns from Technical Context and Constitution Check. Resolve exact
+versions, provider choices, module boundary questions, contract options, and
+testing strategy.]
+
+## Phase 1: Design
+
+[Capture data model, API contracts, module public contracts, command/query
+definitions, frontend screen states, and quickstart validation steps.]
 
 ## Complexity Tracking
 
@@ -109,5 +147,5 @@ directories captured above]
 
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+| [e.g., New module outside initial capabilities] | [specific business capability] | [why existing module ownership is insufficient] |
+| [e.g., Cross-module orchestration in API host] | [specific workflow need] | [why a single module command cannot own it] |
