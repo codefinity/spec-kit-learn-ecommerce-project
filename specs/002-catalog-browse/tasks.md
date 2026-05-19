@@ -113,7 +113,7 @@ description: "Task list for Catalog Browsing feature implementation"
 
 - [ ] T037 [P] [US2] Add SearchProductsQuery tests for case-insensitive partial name/description matching, trimmed search text, unpublished exclusion, and featured-first ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/SearchProductsQueryHandlerTests.cs`
 - [ ] T038 [P] [US2] Add API endpoint tests for `GET /api/catalog/products?search=` validation and results in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogSearchEndpointsTests.cs`
-- [ ] T039 [P] [US2] Add frontend tests for search input, clear search, preserved state, and no-results copy in `src/frontend/storefront/tests/catalog/product-search.test.tsx`
+- [ ] T039 [P] [US2] Add frontend tests for search input, clear search, preserved URL/query state, return-from-detail state, and no-results copy in `src/frontend/storefront/tests/catalog/product-search.test.tsx`
 
 ### Implementation for User Story 2
 
@@ -139,7 +139,7 @@ description: "Task list for Catalog Browsing feature implementation"
 - [ ] T046 [P] [US3] Add GetProductsByCategoryQuery tests for primary category, secondary category, non-browseable category, missing category, combined search/category, and ordering in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetProductsByCategoryQueryHandlerTests.cs`
 - [ ] T047 [P] [US3] Add GetCatalogCategoriesQuery tests for browseable category options in `src/backend/tests/Ecommerce.Modules.Catalog.Tests/Queries/GetCatalogCategoriesQueryHandlerTests.cs`
 - [ ] T048 [P] [US3] Add API endpoint tests for `GET /api/catalog/categories` and `GET /api/catalog/products?category=` in `src/backend/tests/Ecommerce.Api.Tests/Catalog/CatalogCategoryEndpointsTests.cs`
-- [ ] T049 [P] [US3] Add frontend tests for category selection, clear filters, combined search/category state, and category empty state in `src/frontend/storefront/tests/catalog/product-category-filter.test.tsx`
+- [ ] T049 [P] [US3] Add frontend tests for category selection, clear filters, combined search/category state, return-from-detail state, and category empty state in `src/frontend/storefront/tests/catalog/product-category-filter.test.tsx`
 
 ### Implementation for User Story 3
 
@@ -163,7 +163,7 @@ description: "Task list for Catalog Browsing feature implementation"
 - [ ] T058 [P] Verify implemented endpoints match OpenAPI contract in `specs/002-catalog-browse/contracts/catalog-api.yaml`
 - [ ] T059 Run backend format, build, and tests for `src/backend/Ecommerce.sln`
 - [ ] T060 Run frontend lint, typecheck, and tests for `src/frontend/storefront/package.json`
-- [ ] T061 Run Playwright catalog browsing flow for `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
+- [ ] T061 Run Playwright catalog browsing flow with assertions for initial results under 2 seconds and infinite-scroll results under 1 second in `src/frontend/storefront/tests/e2e/catalog-browse.spec.ts`
 - [ ] T062 Review module boundary tests and confirm Catalog does not reference Inventory internals in `src/backend/tests/Ecommerce.Architecture.Tests/ModuleBoundaryTests.cs`
 - [ ] T063 Verify no command handlers were added for this read-only feature in `src/backend/src/Ecommerce.Modules.Catalog/Commands/`
 

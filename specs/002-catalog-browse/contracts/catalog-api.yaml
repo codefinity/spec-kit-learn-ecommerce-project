@@ -94,31 +94,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/CategorySummary"
-  /api/inventory/products/{productId}/availability:
-    get:
-      summary: Get product availability summary
-      operationId: getProductAvailability
-      tags: [Inventory]
-      parameters:
-        - name: productId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      responses:
-        "200":
-          description: Availability summary for the product
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AvailabilitySummary"
-        "404":
-          description: Product availability is unknown
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ProblemDetails"
 components:
   schemas:
     CatalogResultSet:

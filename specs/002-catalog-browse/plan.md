@@ -32,12 +32,10 @@ contract
 
 **CQRS Operations**: Commands: none for this read-only shopper feature; Queries:
 `BrowseProductsQuery`, `SearchProductsQuery`, `GetProductsByCategoryQuery`,
-`GetProductDetailQuery`, `GetCatalogCategoriesQuery`, and
-`GetProductAvailabilityQuery` through Inventory
+`GetProductDetailQuery`, and `GetCatalogCategoriesQuery`
 
 **API Surface**: `GET /api/catalog/products`,
-`GET /api/catalog/products/{productSlug}`, `GET /api/catalog/categories`, and
-`GET /api/inventory/products/{productId}/availability`
+`GET /api/catalog/products/{productSlug}`, and `GET /api/catalog/categories`
 
 **Frontend Surface**: `app/(shop)/products/page.tsx`,
 `app/(shop)/products/[slug]/page.tsx`, `ProductGrid`, `ProductCard`,

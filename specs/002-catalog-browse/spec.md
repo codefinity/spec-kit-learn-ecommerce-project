@@ -115,7 +115,7 @@ return to all products.
 - **FR-012**: System MUST automatically load additional catalog results as the shopper scrolls when more matching products are available.
 - **FR-013**: System MUST show product information with an "availability unavailable" fallback when availability information cannot be loaded.
 - **FR-014**: System MUST keep shopper-facing catalog data read-only in this feature.
-- **FR-015**: System MUST preserve the shopper's search and category choices while moving between catalog results and product detail where practical.
+- **FR-015**: System MUST preserve the shopper's search text, selected category, loaded result set, and scroll position when the shopper opens a product detail page from catalog results and returns to the catalog.
 - **FR-016**: System MUST order catalog results with featured products first, then product name A-Z within featured and non-featured groups.
 
 ### Key Entities *(include if feature involves data)*
@@ -144,14 +144,12 @@ return to all products.
 - **SearchProductsQuery**: Returns published products matching shopper search text, ordered by featured status then product name.
 - **GetProductsByCategoryQuery**: Returns published products belonging to a selected category, ordered by featured status then product name.
 - **GetProductDetailQuery**: Returns detail content for one published product.
-- **GetProductAvailabilityQuery**: Returns availability summary for product cards and product detail.
 
 ### APIs
 
 - **GET /api/catalog/products**: Serves browse, search, category filter, combined filter, and incremental result loading for the catalog listing.
 - **GET /api/catalog/products/{productSlug}**: Serves product detail for one published product.
 - **GET /api/catalog/categories**: Serves browseable category options for catalog filters.
-- **GET /api/inventory/products/{productId}/availability**: Serves availability summary used by catalog product cards and detail.
 
 ### Frontend Screens
 
